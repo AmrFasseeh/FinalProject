@@ -1,0 +1,72 @@
+﻿@model IEnumerable<FootballWebApp.Models.match>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<FootballWebApp.Models.TeamMatchNamesViewModel> teams = ViewBag.teams as List<FootballWebApp.Models.TeamMatchNamesViewModel>;
+    int i = 0;
+
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            Team 1
+        </th>
+        <th>
+            Team 2
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.team1_score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.team2_score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @teams[i].team1_name
+            </td>
+            <td>
+                @teams[i].team2_name
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.team1_score)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.team2_score)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.match_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.match_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.match_id })
+            </td>
+        </tr>
+        i++;
+    }
+
+</table>
+

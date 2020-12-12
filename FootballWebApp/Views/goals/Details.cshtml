@@ -1,0 +1,51 @@
+﻿@model FootballWebApp.Models.goal
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>goal</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.match.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.match.date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.player.fullname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.player.fullname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.team.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.team.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.team_scored_against_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.team_scored_against_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.goal_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
