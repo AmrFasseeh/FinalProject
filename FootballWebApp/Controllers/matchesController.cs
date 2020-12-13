@@ -64,7 +64,6 @@ namespace FootballWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(match);
         }
 
