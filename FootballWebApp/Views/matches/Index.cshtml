@@ -4,9 +4,6 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    List<FootballWebApp.Models.TeamMatchNamesViewModel> teams = ViewBag.teams as List<FootballWebApp.Models.TeamMatchNamesViewModel>;
-    int i = 0;
-
 }
 
 <h2>Index</h2>
@@ -38,20 +35,15 @@
         <th></th>
     </tr>
 
-    @foreach (var it in teams)
-    {
-        <tr>
-            <td>
-                @it.team1_name
-            </td>
-            <td>
-                @it.team2_name
-            </td>
-        </tr>
-    }
     @foreach (var item in Model)
     {
         <tr>
+            <td>
+                @item.TeamMatches.First(x=> x.match_id == item.match_id).team.name
+            </td>
+            <td>
+                @item.TeamMatches.Last(x => x.match_id == item.match_id).team.name
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.team1_score)
             </td>

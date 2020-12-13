@@ -17,47 +17,6 @@ namespace FootballWebApp.Controllers
         // GET: matches
         public ActionResult Index()
         {
-            List<TeamMatchNamesViewModel> teams = new List<TeamMatchNamesViewModel>();
-            List<TeamMatch> teamsWithIds = db.TeamMatches.ToList();
-
-            TeamMatchNamesViewModel team1 = new TeamMatchNamesViewModel();
-            team1.match_id = db.TeamMatches.FirstOrDefault(x => x.match_id == 1).match_id;
-            team1.team1_name = db.TeamMatches.FirstOrDefault(x => x.match_id == 1).team.name;
-            teams.Add(team1);
-
-            for (int i = 0; i < db.matches.Count(); i++)
-            {
-                int found = 1;
-
-                if (teams.Count > 0)
-                {
-                    int index = 0;
-                    if (teams[index] != null)
-                    {
-                        for (int j = 0; j < teams.Count; j++)
-                        {
-
-                            var s = teams[index];
-                            if (teamsWithIds.AsEnumerable().Where(x => x.match_id == s.match_id).Any())
-                            {
-                                var y = teamsWithIds.AsEnumerable().Where(x => x.match_id == s.match_id).ToList();
-                                teams[index].team2_name = y[1].team.name;
-                                found = 0;
-                                index++;
-                            }
-                        }
-                    }
-                }
-                if (found == 1)
-                {
-                    TeamMatchNamesViewModel team = new TeamMatchNamesViewModel();
-                    team.match_id = teamsWithIds.FirstOrDefault(x => x.match_id == i).match_id;
-                    team.team1_name = teamsWithIds.FirstOrDefault(x => x.match_id == i).team.name;
-                    teams.Add(team);
-                }
-
-            }
-            ViewBag.Teams = teams;
             return View(db.matches.ToList());
         }
 
