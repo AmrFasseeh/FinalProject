@@ -48,7 +48,7 @@ namespace FootballWebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "match_id,team1_score,team2_score,date,status")] match match, int team1, int team2)
+        public ActionResult Create([Bind(Include = "match_id,date,status")] match match, int team1, int team2)
         {
             TeamMatch teamMatch1 = new TeamMatch();
             TeamMatch teamMatch2 = new TeamMatch();
@@ -56,9 +56,11 @@ namespace FootballWebApp.Controllers
             {
                 teamMatch1.match_id = match.match_id;
                 teamMatch1.team_id = team1;
+                teamMatch1.home_Away = "home";
                 db.TeamMatches.Add(teamMatch1);
                 teamMatch2.match_id = match.match_id;
                 teamMatch2.team_id = team2;
+                teamMatch2.home_Away = "away";
                 db.TeamMatches.Add(teamMatch2);
                 db.matches.Add(match);
                 db.SaveChanges();
@@ -79,6 +81,8 @@ namespace FootballWebApp.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.team1 = new SelectList(db.teams.ToList(), "team_id", "name");
+            ViewBag.team2 = new SelectList(db.teams.ToList(), "team_id", "name");
             return View(match);
         }
 
@@ -87,7 +91,7 @@ namespace FootballWebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "match_id,team1_score,team2_score,date,status")] match match)
+        public ActionResult Edit([Bind(Include = "match_id,date,status")] match match)
         {
             if (ModelState.IsValid)
             {

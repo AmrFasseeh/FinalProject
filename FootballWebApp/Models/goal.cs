@@ -15,14 +15,8 @@ namespace FootballWebApp.Models
 
         public int? player_id { get; set; }
 
-        public int? team_id { get; set; }
-
-        public int? team_scored_against_id { get; set; }
-
         public virtual match match { get; set; }
 
         public virtual player player { get; set; }
-
-        public virtual team team { get; set; }
     }
 }

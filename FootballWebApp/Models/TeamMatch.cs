@@ -14,6 +14,9 @@ namespace FootballWebApp.Models
 
         [Key, Column(Order = 2)]
         public int team_id { get; set; }
+
+        public string home_Away { get; set; }
+
         public virtual match match { get; set; }
         public virtual team team { get; set; }
     }

@@ -5,14 +5,14 @@ namespace FootballWebApp.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<FootballWebApp.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<FootballWebApp.Models.FootballDB>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(FootballWebApp.Models.ApplicationDbContext context)
+        protected override void Seed(FootballWebApp.Models.FootballDB context)
         {
             //  This method will be called after migrating to the latest version.
 

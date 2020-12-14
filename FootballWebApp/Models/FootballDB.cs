@@ -12,7 +12,6 @@ namespace FootballWebApp.Models
         {
         }
 
-        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<goal> goals { get; set; }
         public virtual DbSet<league> leagues { get; set; }
         public virtual DbSet<match> matches { get; set; }
@@ -56,10 +55,6 @@ namespace FootballWebApp.Models
                 .WithRequired(e => e.post)
                 .HasForeignKey(e => e.post_id);
 
-            modelBuilder.Entity<team>()
-                .HasMany(e => e.goals)
-                .WithOptional(e => e.team)
-                .WillCascadeOnDelete();
 
             modelBuilder.Entity<team>()
                 .HasMany(e => e.players)

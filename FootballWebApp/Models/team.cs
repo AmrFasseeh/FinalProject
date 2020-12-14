@@ -11,7 +11,6 @@ namespace FootballWebApp.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public team()
         {
-            goals = new HashSet<goal>();
             players = new HashSet<player>();
             red_cards = new HashSet<red_cards>();
             yellow_cards = new HashSet<yellow_cards>();
@@ -41,8 +40,6 @@ namespace FootballWebApp.Models
 
         public int? league_id { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<goal> goals { get; set; }
 
         public virtual league league { get; set; }
 
