@@ -226,8 +226,6 @@ E:\ITI\.Net repo\FootballWebApp\FootballWebApp\obj\Debug\FootballWebApp.csproj.C
 E:\ITI\.Net repo\FootballWebApp\FootballWebApp\obj\Debug\FootballWebApp.csproj.CopyComplete
 E:\ITI\.Net repo\FootballWebApp\FootballWebApp\obj\Debug\FootballWebApp.dll
 E:\ITI\.Net repo\FootballWebApp\FootballWebApp\obj\Debug\FootballWebApp.pdb
-E:\ITI\.Net repo\FootballWebApp\FootballWebApp\obj\Debug\FootballWebApp.Migrations.first.resources
-E:\ITI\.Net repo\FootballWebApp\FootballWebApp\obj\Debug\FootballWebApp.csproj.GenerateResource.cache
 F:\Mahmoud\iti\Final project\FinalProject\FootballWebApp\bin\FootballWebApp.dll.config
 F:\Mahmoud\iti\Final project\FinalProject\FootballWebApp\bin\FootballWebApp.dll
 F:\Mahmoud\iti\Final project\FinalProject\FootballWebApp\bin\FootballWebApp.pdb
@@ -461,3 +459,5 @@ D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.csproj.
 D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.dll
 D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.pdb
 D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.second.resources
+E:\ITI\.Net repo\FootballWebApp\FootballWebApp\obj\Debug\FootballWebApp.Migrations.first.resources
+E:\ITI\.Net repo\FootballWebApp\FootballWebApp\obj\Debug\FootballWebApp.csproj.GenerateResource.cache

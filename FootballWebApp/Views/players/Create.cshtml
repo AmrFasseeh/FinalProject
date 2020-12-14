@@ -16,8 +16,9 @@
     <h4>player</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group" name="team_id">
-        <p value="@ViewBag.team_id">Team : @ViewBag.team_name</p> 
+    <div class="form-group">
+        <p>Team : @ViewBag.team_name</p>
+        <input value="@ViewBag.team_id" type="hidden" name="team_id"/>
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.fullname, htmlAttributes: new { @class = "control-label col-md-2" })

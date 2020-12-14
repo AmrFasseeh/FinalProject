@@ -17,7 +17,7 @@ namespace FootballWebApp.Migrations
                     })
                 .PrimaryKey(t => t.goal_id)
                 .ForeignKey("dbo.matches", t => t.match_id, cascadeDelete: true)
-                .ForeignKey("dbo.players", t => t.player_id)
+                .ForeignKey("dbo.players", t => t.player_id, cascadeDelete: true)
                 .Index(t => t.match_id)
                 .Index(t => t.player_id);
             

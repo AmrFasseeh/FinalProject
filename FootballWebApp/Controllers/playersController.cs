@@ -60,7 +60,9 @@ namespace FootballWebApp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.team_id = new SelectList(db.teams, "team_id", "name", player.team_id);
+            var selectedTeam = db.teams.Single(t => t.team_id == player.team_id);
+            ViewBag.team_name = selectedTeam.name;
+            ViewBag.team_id = player.team_id;
             return View(player);
         }
 
