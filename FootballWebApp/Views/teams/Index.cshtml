@@ -72,9 +72,10 @@
             @Html.DisplayFor(modelItem => item.loss)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.team_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.team_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.team_id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.team_id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.team_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.team_id }) |
+            @Html.ActionLink("Add Players", "Create", "players", new { id = item.team_id }, null)
         </td>
     </tr>
 }

@@ -32,7 +32,8 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.league_id }) |
             @Html.ActionLink("Details", "Details", new { id=item.league_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.league_id })
+            @Html.ActionLink("Delete", "Delete", new { id=item.league_id }) |
+            @Html.ActionLink("Add a Team", "Create", "teams", new { id=item.league_id }, null)
         </td>
     </tr>
 }

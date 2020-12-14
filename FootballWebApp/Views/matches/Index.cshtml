@@ -39,7 +39,7 @@
     {
         <tr>
             <td>
-                @item.TeamMatches.First(x=> x.match_id == item.match_id && x.home_Away=="home").team.name
+                @item.TeamMatches.First(x => x.match_id == item.match_id && x.home_Away == "home").team.name
             </td>
             <td>
                 @item.TeamMatches.Last(x => x.match_id == item.match_id && x.home_Away == "away").team.name

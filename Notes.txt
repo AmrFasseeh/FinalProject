@@ -1,1 +1,7 @@
 In matches remove selected value
+
+Matches issue
+
+-Remove create from teams/players/goals
+
+-Validations of repetitive names

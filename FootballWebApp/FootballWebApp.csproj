@@ -201,6 +201,10 @@
     <Compile Include="Migrations\202012132324362_first.Designer.cs">
       <DependentUpon>202012132324362_first.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012140318241_second.cs" />
+    <Compile Include="Migrations\202012140318241_second.Designer.cs">
+      <DependentUpon>202012140318241_second.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FootballDB.cs" />
@@ -422,6 +426,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202012132324362_first.resx">
       <DependentUpon>202012132324362_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012140318241_second.resx">
+      <DependentUpon>202012140318241_second.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

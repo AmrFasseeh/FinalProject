@@ -37,9 +37,11 @@ namespace FootballWebApp.Controllers
         }
 
         // GET: players/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.team_id = new SelectList(db.teams, "team_id", "name");
+            var selectedTeam = db.teams.Single(t => t.team_id == id);
+            ViewBag.team_name = selectedTeam.name;
+            ViewBag.team_id=id;
             return View();
         }
 
@@ -48,10 +50,11 @@ namespace FootballWebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "player_id,fullname,age,number,team_id")] player player)
+        public ActionResult Create([Bind(Include = "player_id,fullname,age,number")] player player,int team_id)
         {
             if (ModelState.IsValid)
             {
+                player.team_id = team_id;
                 db.players.Add(player);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -46,6 +46,11 @@ namespace FootballWebApp.Models
                 .WithOptional(e => e.match)
                 .WillCascadeOnDelete();
 
+            modelBuilder.Entity<player>()
+                .HasMany(e => e.goals)
+                .WithOptional(e => e.player)
+                .WillCascadeOnDelete();
+
             modelBuilder.Entity<post>()
                 .Property(e => e.post_content)
                 .IsUnicode(false);
