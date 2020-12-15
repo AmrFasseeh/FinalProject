@@ -19,15 +19,18 @@ namespace FootballWebApp.Models
 
         [Key]
         public int match_id { get; set; }
-
+        [Display(Name ="Team 1 Goals")]
         public int team1_score { get; set; }
 
+        [Display(Name ="Team 2 Goals")]
         public int team2_score { get; set; }
 
         [StringLength(50)]
+        [Display(Name ="Date")]
         public string date { get; set; }
 
         [StringLength(50)]
+        [Display(Name ="Match Status")]
         public string status { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

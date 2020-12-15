@@ -37,11 +37,13 @@ namespace FootballWebApp.Controllers
         }
 
         // GET: yellowcards/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.match_id = new SelectList(db.matches, "match_id", "date");
-            ViewBag.player_id = new SelectList(db.players, "player_id", "fullname");
-            ViewBag.team_id = new SelectList(db.teams, "team_id", "name");
+            var selectedMatch = db.matches.Single(m => m.match_id == id);
+            var teams= selectedMatch.TeamMatches.Select(m=>m.team);
+            ViewBag.teams = teams;
+            var players = teams.Select(t=>t.players);
+            ViewBag.players = players;
             return View();
         }
 

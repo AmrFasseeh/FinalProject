@@ -18,9 +18,11 @@ namespace FootballWebApp.Models
         public int league_id { get; set; }
 
         [StringLength(255)]
+        [Display(Name ="League")]
         public string name { get; set; }
 
         [StringLength(255)]
+        [Display(Name ="Country")]
         public string countries { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

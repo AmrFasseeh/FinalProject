@@ -21,6 +21,7 @@ namespace FootballWebApp.Models
         public int team_id { get; set; }
 
         [StringLength(255)]
+        [Display(Name ="Club")]
         public string name { get; set; }
 
         [StringLength(255)]

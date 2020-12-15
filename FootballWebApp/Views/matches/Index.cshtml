@@ -2,23 +2,23 @@
 
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Matches";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Matches Panel</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add a Match", "Create")
 </p>
 <table class="table">
     <tr>
 
         <th>
-            Team 1
+            Home
         </th>
         <th>
-            Team 2
+            Away
         </th>
         <th>
             @Html.DisplayNameFor(model => model.team1_score)
@@ -60,7 +60,8 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.match_id }) |
                 @Html.ActionLink("Details", "Details", new { id = item.match_id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.match_id }) |
-                @Html.ActionLink("Add Goals", "Create", "goals", new { id = item.match_id }, null)
+                @Html.ActionLink("Add Goals", "Create", "goals", new { id = item.match_id }, null) |
+                @Html.ActionLink("Add Yellow Card", "Create", "yellowcards", new { id = item.match_id }, null)
             </td>
         </tr>
     }
