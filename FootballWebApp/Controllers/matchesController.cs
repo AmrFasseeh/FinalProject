@@ -62,6 +62,8 @@ namespace FootballWebApp.Controllers
                 teamMatch2.team_id = team2;
                 teamMatch2.home_Away = "away";
                 db.TeamMatches.Add(teamMatch2);
+                match.team1_score = 0;
+                match.team2_score = 0;
                 db.matches.Add(match);
                 db.SaveChanges();
                 return RedirectToAction("Index");

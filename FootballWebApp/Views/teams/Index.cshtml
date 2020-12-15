@@ -1,83 +1,236 @@
 ﻿@model IEnumerable<FootballWebApp.Models.team>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Teams";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.league.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.coach)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.goals_for)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.goals_against)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.points)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.wins)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.draws)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.loss)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.league.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.coach)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.goals_for)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.goals_against)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.points)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.wins)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.draws)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.loss)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.team_id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.team_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.team_id }) |
-            @Html.ActionLink("Add Players", "Create", "players", new { id = item.team_id }, null)
-        </td>
-    </tr>
+@section styles {
+    @Styles.Render("~/Content/app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css")
+    @Styles.Render("~/Content/app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css")
 }
 
-</table>
+<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
+
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Leagues</h4>
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="select_league">Select a League</label>
+            <select class="form-control" id="select_league">
+                <option selected>Select a league</option>
+                @foreach (var item in ViewBag.leagues)
+                {
+                    <option value="@item.league_id">@item.name</option>
+                }
+            </select>
+        </div>
+    </div>
+</div>
+
+
+<section id="row-grouping-datatable">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header border-bottom">
+                    <h4 class="card-title">Teams List</h4>
+                </div>
+                <div class="card-datatable">
+                    <table class="dt-row-grouping table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.coach)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.goals_for)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.goals_against)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.points)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.wins)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.draws)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.loss)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var team in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @team.name
+                                </td>
+                                <td>
+                                    @team.coach
+                                </td>
+                                <td>
+                                    @team.goals_for
+                                </td>
+                                <td>
+                                    @team.goals_against
+                                </td>
+                                <td>
+                                    @team.points
+                                </td>
+                                <td>
+                                    @team.wins
+                                </td>
+                                <td>
+                                    @team.draws
+                                </td>
+                                <td>
+                                    @team.loss
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = team.team_id }) |
+                                    @Html.ActionLink("Details", "Details", new { id = team.team_id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = team.team_id }) |
+                                    @Html.ActionLink("Add Players", "Create", "players", new { id = team.team_id }, null)
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.coach)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.goals_for)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.goals_against)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.points)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.wins)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.draws)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.loss)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.league.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.coach)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.goals_for)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.goals_against)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.points)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wins)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.draws)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.loss)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.league.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.coach)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.goals_for)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.goals_against)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.points)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.wins)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.draws)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.loss)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.team_id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.team_id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.team_id }) |
+                    @Html.ActionLink("Add Players", "Create", "players", new { id = item.team_id }, null)
+                </td>
+            </tr>
+        }
+
+    </table>*@
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatables/jquery.dataTables.min.js")
+    @Scripts.Render("~/Scripts/vendors/js/tables/datatable/datatables.bootstrap4.min.js")
+    @Scripts.Render("~/Scripts/vendors/js/tables/datatable/dataTables.responsive.min.js")
+    @Scripts.Render("~/Scripts/vendors/js/tables/datatable/responsive.bootstrap4.js")
+    @Scripts.Render("~/Scripts/vendors/js/pickers/flatpickr/flatpickr.min.js")
+    @Scripts.Render("~/Scripts/js/scripts/tables/table-datatables-advanced.min.js")
+
+    <script>
+        $(document).ready(function () {
+            $("#select_league").change(function () {
+                console.log("changed");
+                var id = $("#select_league").val();
+                location.href = 'https://localhost:44324/teams/index/'+id;
+            });
+        });
+    </script>
+}

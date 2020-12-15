@@ -26,17 +26,17 @@ namespace FootballWebApp.Models
         [StringLength(255)]
         public string coach { get; set; }
 
-        public int? goals_for { get; set; }
+        public int goals_for { get; set; }
 
-        public int? goals_against { get; set; }
+        public int goals_against { get; set; }
 
-        public int? points { get; set; }
+        public int points { get; set; }
 
-        public int? wins { get; set; }
+        public int wins { get; set; }
 
-        public int? draws { get; set; }
+        public int draws { get; set; }
 
-        public int? loss { get; set; }
+        public int loss { get; set; }
 
         public int? league_id { get; set; }
 

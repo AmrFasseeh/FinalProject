@@ -20,9 +20,9 @@ namespace FootballWebApp.Models
         [Key]
         public int match_id { get; set; }
 
-        public int? team1_score { get; set; }
+        public int team1_score { get; set; }
 
-        public int? team2_score { get; set; }
+        public int team2_score { get; set; }
 
         [StringLength(50)]
         public string date { get; set; }

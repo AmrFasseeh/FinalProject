@@ -15,9 +15,61 @@ namespace FootballWebApp.Controllers
         private FootballDB db = new FootballDB();
 
         // GET: teams
-        public ActionResult Index()
+
+        public ActionResult Index(int? id)
         {
-            var teams = db.teams.Include(t => t.league);
+
+            var allteams = db.teams.ToList();
+
+            foreach (var item in allteams)
+            {
+                if (item.TeamMatches.Count != 0)
+                {
+                    var matches = item.TeamMatches.Where(a => a.team_id == item.team_id);
+                    foreach (var m in matches)
+                    {
+                        if (m.home_Away == "home")
+                        {
+                            if (m.match.team1_score > m.match.team2_score)
+                            {
+                                item.points += 3;
+                                item.wins++;
+                            }
+                            else if (m.match.team1_score < m.match.team2_score)
+                            {
+                                item.loss++;
+                            }
+                            else if (m.match.team1_score == m.match.team2_score)
+                            {
+                                item.points++;
+                                item.draws++;
+                            }
+                        }
+                        else if (m.home_Away == "away")
+                        {
+                            if (m.match.team1_score < m.match.team2_score)
+                            {
+                                item.points += 3;
+                                item.wins++;
+                            }
+                            else if (m.match.team1_score > m.match.team2_score)
+                            {
+                                item.loss++;
+                            }
+                            else if (m.match.team1_score == m.match.team2_score)
+                            {
+                                item.points++;
+                                item.draws++;
+                            }
+                        }
+                    }
+                }
+            }
+
+            var teams = db.teams.Where(t => t.league_id == id);
+            var leagues = db.leagues;
+            ViewBag.currentLeague = id;
+            ViewBag.leagues = leagues;
             return View(teams.ToList());
         }
 
@@ -50,11 +102,17 @@ namespace FootballWebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "team_id,name,coach,goals_for,goals_against,points,wins,draws,loss")] team team,int id)
+        public ActionResult Create([Bind(Include = "team_id,name,coach,goals_for,goals_against,points,wins,draws,loss")] team team, int id)
         {
             if (ModelState.IsValid)
             {
                 team.league_id = id;
+                team.goals_for = 0;
+                team.goals_against = 0;
+                team.points = 0;
+                team.wins = 0;
+                team.draws = 0;
+                team.loss = 0;
                 db.teams.Add(team);
                 db.SaveChanges();
                 return RedirectToAction("Index");

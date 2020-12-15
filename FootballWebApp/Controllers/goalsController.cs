@@ -70,7 +70,62 @@ namespace FootballWebApp.Controllers
                 {
                     goal.player_id = player_id2;
                 }
+                var teams = db.TeamMatches.Where(a => a.match_id == goal.match_id);
+                
                 db.goals.Add(goal);
+                foreach (var item in teams)
+                {
+                    if (item.team.team_id == db.players.Find(goal.player_id).team_id)
+                    {
+                        if (item.team.goals_for == null)
+                        {
+                            item.team.goals_for = 0;
+                            item.team.goals_for++;
+                        }
+                        else
+                        {
+                            item.team.goals_for++;
+                        }
+                        var match = db.matches.First(a => a.match_id == goal.match_id);
+                        if (item.home_Away == "home")
+                        {
+                            if (match.team1_score == null)
+                            {
+                                match.team1_score = 0;
+                                match.team1_score++;
+                            }
+                            else
+                            {
+                                match.team1_score++;
+                            }
+                        }
+                        else if (item.home_Away == "away")
+                        {
+                            if (match.team2_score == null)
+                            {
+                                match.team2_score = 0;
+                                match.team2_score++;
+                            }
+                            else
+                            {
+                                match.team2_score++;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (item.team.goals_against == null)
+                        {
+                            item.team.goals_against = 0;
+                            item.team.goals_against++;
+                        }
+                        else
+                        {
+                            item.team.goals_against++;
+                        }
+                    }
+                    
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
