@@ -20,17 +20,17 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.TeamMatches, "team1", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TeamMatches, "Home", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("team1", null, htmlAttributes: new { @class = "form-control", name = "team1_id" })
+                @Html.DropDownList("team1", null,"Select the first club", htmlAttributes: new { @class = "form-control", name = "team1_id" })
                 @Html.ValidationMessageFor(model => model.TeamMatches, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TeamMatches, "team2", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TeamMatches, "Away", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("team2", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("team2", null,"Select the second club", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.TeamMatches, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -49,8 +49,12 @@
         <div class="form-group">
             @Html.LabelFor(model => model.status, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.status, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
+                @*@Html.EditorFor(model => model.status, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.RadioButtonFor(model => model.status, "Postponed") Postponed <br />
+                @Html.RadioButtonFor(model => model.status, "Not Started") Not Started <br />
+                @Html.RadioButtonFor(model => model.status, "Started") Started <br />
+                @Html.RadioButtonFor(model => model.status, "Finished") Finished <br />
+                @Html.ValidationMessageFor(model => model.status, "Choose a status", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -74,5 +78,16 @@
             enableTime: true,
             dateFormat: "Y-m-d h:i K",
         });
+
+        $(document).ready(function () {
+            $('select').on('change', function (event) {
+                var prevValue = $(this).data('previous');
+                $('select').not(this).find('option[value="' + prevValue + '"]').show();
+                var value = $(this).val();
+                $(this).data('previous', value);
+                $('select').not(this).find('option[value="' + value + '"]').hide();
+            });
+        });
+
     </script>
 }

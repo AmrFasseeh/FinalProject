@@ -26,9 +26,13 @@ namespace FootballWebApp.Controllers
                 if (item.TeamMatches.Count != 0)
                 {
                     var matches = item.TeamMatches.Where(a => a.team_id == item.team_id);
+                    var points = item.points;
+                    var wins = item.wins;
+                    var loss = item.loss;
+                    var draws = item.draws;
                     foreach (var m in matches)
                     {
-                        if (m.home_Away == "home")
+                        if (m.home_Away == "home" && m.match.status == "Finished")
                         {
                             if (m.match.team1_score > m.match.team2_score)
                             {
@@ -45,8 +49,12 @@ namespace FootballWebApp.Controllers
                                 item.draws++;
                             }
                         }
-                        else if (m.home_Away == "away")
+                        else if (m.home_Away == "away" && m.match.status == "Finished")
                         {
+                            item.points = points;
+                            item.wins = wins;
+                            item.loss = loss;
+                            item.draws = draws;
                             if (m.match.team1_score < m.match.team2_score)
                             {
                                 item.points += 3;
