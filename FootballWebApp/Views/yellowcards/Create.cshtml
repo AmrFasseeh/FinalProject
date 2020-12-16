@@ -8,58 +8,59 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <h4>yellow cards</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <input name="match_id" type="hidden" value="@ViewBag.match_id" />
-
-
-        <div class="form-group" id="teams">
-            <label for="team_id">Select a player</label>
-            <select class="form-control" id="team_id" name="team_id">
-                <option selected value="0">Select a team</option>
-                @foreach (var item in ViewBag.teams)
-                {
-                    <option value="@item.team_id">@item.team.name</option>
-                }
-            </select>
+    
+<div class="form-horizontal">
+    <h4>yellow_cards</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="card">
+        <div class="card-header">
         </div>
-
-
-        <div class="form-group" id="players_1">
-            <label for="player_id_1">Select a player</label>
-            <select class="form-control" name="player_id_1" id="player_id_@ViewBag.teams[0].team_id">
-                <option selected value="0">Select a league</option>
-                @foreach (var item in ViewBag.players1_id)
-                {
-                    <option value="@item.player_id">@item.fullname</option>
-                }
-            </select>
-        </div>
-
-        <div class="form-group" id="players_2">
-            <label for="player_id_2">Select a player</label>
-            <select class="form-control" name="player_id_2" id="player_id_@ViewBag.teams[1].team_id">
-                <option selected value="0">Select a league</option>
-                @foreach (var item in ViewBag.players2_id)
-                {
-                    <option value="@item.player_id">@item.fullname</option>
-                }
-            </select>
-        </div>
-
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-primary" />
+        <div class="card-body">
+            <div class="form-group">
+                <select class="form-control">
+                    <option selected>Select a team</option>
+                    @foreach (var item in ViewBag.teams)
+                    {
+                        <option value="@item.team_id">@item.name</option>
+                    }
+                </select>
             </div>
         </div>
     </div>
+    <div class="card">
+        <div class="card-header">
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <select class="form-control">
+                    <option selected>Select a player</option>
+                    @foreach (var item in ViewBag.players)
+                    {
+                        <option value="@item.player_id">@item.fullname</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.player_id, "Players", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("player_id", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.player_id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
 }
 
 <div>
@@ -68,20 +69,4 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-
-    <script>
-            $("#players_1").hide();
-            $("#players_2").hide();
-    $("#team_id").on("change", function (e) {
-        var selectedTeam = $("#team_id").val();
-        if (selectedTeam == @ViewBag.teams[0].team_id) {
-                    $("#players_1").show();
-                    $("#players_2").hide();
-        } else if (selectedTeam == @ViewBag.teams[1].team_id){
-                    $("#players_1").hide();
-                    $("#players_2").show();
-                }
-            })
-
-    </script>
 }

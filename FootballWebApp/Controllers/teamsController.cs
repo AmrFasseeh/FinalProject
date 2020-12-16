@@ -68,7 +68,6 @@ namespace FootballWebApp.Controllers
 
             var teams = db.teams.Where(t => t.league_id == id);
             var leagues = db.leagues;
-            db.SaveChanges();
             ViewBag.currentLeague = id;
             ViewBag.leagues = leagues;
             return View(teams.ToList());
@@ -170,15 +169,6 @@ namespace FootballWebApp.Controllers
             }
             return View(team);
         }
-
-
-        public ActionResult getSingleTeam(int id)
-        {
-            var team = db.teams.Find(id);
-            return View(team);
-        }
-
-
 
         // POST: teams/Delete/5
         [HttpPost, ActionName("Delete")]
