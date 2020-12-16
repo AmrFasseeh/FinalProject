@@ -39,11 +39,16 @@ namespace FootballWebApp.Controllers
         // GET: yellowcards/Create
         public ActionResult Create(int id)
         {
-            var selectedMatch = db.matches.Single(m => m.match_id == id);
-            var teams= selectedMatch.TeamMatches.Select(m=>m.team);
+            ViewBag.match_id = id;
+            var match = db.matches.Find(id);
+            var team1 = match.TeamMatches.First(m => m.match_id == match.match_id);
+            var team2 = match.TeamMatches.Last(m => m.match_id == match.match_id);
+            List<TeamMatch> teams = new List<TeamMatch>();
+            teams.Add(team1);
+            teams.Add(team2);
+            ViewBag.players1_id = db.players.Where(p => p.team_id == team1.team_id);
+            ViewBag.players2_id = db.players.Where(p => p.team_id == team2.team_id);
             ViewBag.teams = teams;
-            var players = teams.Select(t=>t.players);
-            ViewBag.players = players;
             return View();
         }
 
@@ -52,18 +57,33 @@ namespace FootballWebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "yellow_card_id,match_id,player_id,team_id")] yellow_cards yellow_cards)
+        public ActionResult Create([Bind(Include = "yellow_card_id, match_id, team_id")] yellow_cards yellow_cards, int player_id_1, int player_id_2)
         {
             if (ModelState.IsValid)
             {
+                if (player_id_1 != 0 && player_id_2 == 0)
+                {
+                    yellow_cards.player_id = player_id_1;
+                }
+                else if (player_id_1 == 0 && player_id_2 != 0)
+                {
+                    yellow_cards.player_id = player_id_2;
+                }
                 db.yellow_cards.Add(yellow_cards);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.match_id = new SelectList(db.matches, "match_id", "date", yellow_cards.match_id);
-            ViewBag.player_id = new SelectList(db.players, "player_id", "fullname", yellow_cards.player_id);
-            ViewBag.team_id = new SelectList(db.teams, "team_id", "name", yellow_cards.team_id);
+            ViewBag.match_id = yellow_cards.match_id;
+            var match = db.matches.Find(yellow_cards.match_id);
+            var team1 = match.TeamMatches.First(m => m.match_id == match.match_id);
+            var team2 = match.TeamMatches.Last(m => m.match_id == match.match_id);
+            List<TeamMatch> teams = new List<TeamMatch>();
+            teams.Add(team1);
+            teams.Add(team2);
+            ViewBag.players1_id = db.players.Where(p => p.team_id == team1.team_id);
+            ViewBag.players2_id = db.players.Where(p => p.team_id == team2.team_id);
+            ViewBag.teams = teams;
             return View(yellow_cards);
         }
 

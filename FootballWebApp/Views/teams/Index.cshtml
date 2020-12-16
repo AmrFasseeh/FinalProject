@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<FootballWebApp.Models.team>
 
 @{
-    ViewBag.Title = "Clubs";
+    ViewBag.Title = "Teams";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -71,40 +71,40 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach(var team in Model)
+                            @foreach (var team in Model)
                             {
-                            <tr>
-                                <td>
-                                    @team.name
-                                </td>
-                                <td>
-                                    @team.coach
-                                </td>
-                                <td>
-                                    @team.goals_for
-                                </td>
-                                <td>
-                                    @team.goals_against
-                                </td>
-                                <td>
-                                    @team.points
-                                </td>
-                                <td>
-                                    @team.wins
-                                </td>
-                                <td>
-                                    @team.draws
-                                </td>
-                                <td>
-                                    @team.loss
-                                </td>
-                                <td>
-                                    @Html.ActionLink("Edit", "Edit", new { id = team.team_id }) |
-                                    @Html.ActionLink("Details", "Details", new { id = team.team_id }) |
-                                    @Html.ActionLink("Delete", "Delete", new { id = team.team_id }) |
-                                    @Html.ActionLink("Add Players", "Create", "players", new { id = team.team_id }, null)
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        <a href="@Url.Action("getSingleTeam", "teams", new { id = @team.team_id})">@team.name</a>
+                                    </td>
+                                    <td>
+                                        @team.coach
+                                    </td>
+                                    <td>
+                                        @team.goals_for
+                                    </td>
+                                    <td>
+                                        @team.goals_against
+                                    </td>
+                                    <td>
+                                        @team.points
+                                    </td>
+                                    <td>
+                                        @team.wins
+                                    </td>
+                                    <td>
+                                        @team.draws
+                                    </td>
+                                    <td>
+                                        @team.loss
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = team.team_id }) |
+                                        @Html.ActionLink("Details", "Details", new { id = team.team_id }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = team.team_id }) |
+                                        @Html.ActionLink("Add Players", "Create", "players", new { id = team.team_id }, null)
+                                    </td>
+                                </tr>
                             }
                         </tbody>
                         <tfoot>
