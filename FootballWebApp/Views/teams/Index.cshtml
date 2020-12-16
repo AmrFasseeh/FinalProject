@@ -75,7 +75,7 @@
                             {
                             <tr>
                                 <td>
-                                    @team.name
+                                    <a href="@Url.Action("getSingleTeam", "teams", new { id = @team.team_id})">@team.name</a>
                                 </td>
                                 <td>
                                     @team.coach

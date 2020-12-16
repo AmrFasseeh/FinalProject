@@ -1,0 +1,97 @@
+﻿@model FootballWebApp.Models.team
+@{
+    ViewBag.Title = Model.name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card mb-4">
+    <div class="card-body">
+        <h4 class="card-title">Team: @Model.name</h4>
+        <div class="card-subtitle text-muted mb-1">League: @Model.league.name</div>
+        <div class="card-subtitle text-muted mb-1">Coach: @Model.coach</div>
+        <p class="card-text">
+            <span>Points: @Model.points</span> <br />
+            <span>Win: @Model.wins</span><br />
+            <span>Draw: @Model.draws</span><br />
+            <span>Loss: @Model.loss</span><br />
+            <span>Goals Scored: @Model.goals_for</span><br />
+            <span>Goals Against: @Model.goals_against</span>
+        </p>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <h4 class="card-title">Players</h4>
+        <p class="card-text">
+            <section id="row-grouping-datatable">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header border-bottom">
+                                <h4 class="card-title">Teams List</h4>
+                            </div>
+                            <div class="card-datatable">
+                                <table class="dt-row-grouping table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Player Name
+                                            </th>
+                                            <th>
+                                                Number
+                                            </th>
+                                            <th>
+                                                Age
+                                            </th>
+                                            <th>
+                                                Goals Scored
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var player in Model.players)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @player.fullname
+                                                </td>
+                                                <td>
+                                                    @player.number
+                                                </td>
+                                                <td>
+                                                    @player.age
+                                                </td>
+                                                <td>
+                                                    @player.goals.Count
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>
+                                                Player Name
+                                            </th>
+                                            <th>
+                                                Number
+                                            </th>
+                                            <th>
+                                                Age
+                                            </th>
+                                            <th>
+                                                Goals Scored
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </p>
+    </div>
+</div>
+
