@@ -20,10 +20,11 @@ namespace FootballWebApp.Models
         public int player_id { get; set; }
 
         [StringLength(255)]
+        [Display(Name ="Name")]
         public string fullname { get; set; }
-
+        [Display(Name ="Age")]
         public int? age { get; set; }
-
+        [Display(Name ="Number")]
         public int? number { get; set; }
 
         public int? team_id { get; set; }

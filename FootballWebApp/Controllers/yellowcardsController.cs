@@ -39,6 +39,7 @@ namespace FootballWebApp.Controllers
         // GET: yellowcards/Create
         public ActionResult Create(int id)
         {
+<<<<<<< HEAD
             ViewBag.match_id = id;
             var match = db.matches.Find(id);
             var team1 = match.TeamMatches.First(m => m.match_id == match.match_id);
@@ -49,6 +50,13 @@ namespace FootballWebApp.Controllers
             ViewBag.players1_id = db.players.Where(p => p.team_id == team1.team_id);
             ViewBag.players2_id = db.players.Where(p => p.team_id == team2.team_id);
             ViewBag.teams = teams;
+=======
+            var selectedMatch = db.matches.Single(m => m.match_id == id);
+            var teams= selectedMatch.TeamMatches.Select(m=>m.team);
+            ViewBag.teams = teams;
+            var players = teams.Select(t=>t.players);
+            ViewBag.players = players;
+>>>>>>> db4a7e441a670d8da104e1cac116990e2d10b72c
             return View();
         }
 

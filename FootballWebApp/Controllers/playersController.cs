@@ -15,9 +15,12 @@ namespace FootballWebApp.Controllers
         private FootballDB db = new FootballDB();
 
         // GET: players
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            var players = db.players.Include(p => p.team);
+            var players = db.players.Where(p => p.team_id==id);
+            var teams = db.teams;
+            ViewBag.currentTeam = id;
+            ViewBag.teams = teams;
             return View(players.ToList());
         }
 

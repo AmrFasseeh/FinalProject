@@ -1,20 +1,38 @@
 ﻿@model IEnumerable<FootballWebApp.Models.player>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Players";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+@section styles {
+    @Styles.Render("~/Content/app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css")
+    @Styles.Render("~/Content/app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css")
+}
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
+
+
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Clubs</h4>
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="select_club">Select a Club</label>
+            <select class="form-control" id="select_club">
+                <option selected>Select a Club</option>
+                @foreach (var item in ViewBag.teams)
+                {
+                    <option value="@item.team_id">@item.name</option>
+                }
+            </select>
+        </div>
+    </div>
+</div>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.team.name)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.fullname)
         </th>
@@ -27,26 +45,42 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.team.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fullname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.age)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.number)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.player_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.player_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.player_id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.number)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.player_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.player_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.player_id })
+            </td>
+        </tr>
+    }
 
 </table>
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatables/jquery.dataTables.min.js")
+    @Scripts.Render("~/Scripts/vendors/js/tables/datatable/datatables.bootstrap4.min.js")
+    @Scripts.Render("~/Scripts/vendors/js/tables/datatable/dataTables.responsive.min.js")
+    @Scripts.Render("~/Scripts/vendors/js/tables/datatable/responsive.bootstrap4.js")
+    @Scripts.Render("~/Scripts/vendors/js/pickers/flatpickr/flatpickr.min.js")
+    @Scripts.Render("~/Scripts/js/scripts/tables/table-datatables-advanced.min.js")
+
+    <script>
+        $(document).ready(function () {
+            $("#select_club").change(function () {
+                console.log("changed");
+                var id = $("#select_club").val();
+                location.href = 'https://localhost:44324/players/index/'+id;
+            });
+        });
+    </script>
+    }
