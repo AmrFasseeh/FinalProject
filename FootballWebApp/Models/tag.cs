@@ -8,7 +8,7 @@ namespace FootballWebApp.Models
 
     public partial class tag
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
         public int id { get; set; }
         [Display(Name ="Tag Title")]
         [Required]

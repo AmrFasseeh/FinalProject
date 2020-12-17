@@ -13,7 +13,7 @@ namespace FootballWebApp.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202012170647201_first"; }
+            get { return "202012170822359_first"; }
         }
         
         string IMigrationMetadata.Source

@@ -133,8 +133,8 @@ namespace FootballWebApp.Migrations
                         post_content = c.String(nullable: false, unicode: false, storeType: "text"),
                         post_image = c.String(maxLength: 50),
                         post_type = c.String(nullable: false, maxLength: 50),
-                        post_date = c.DateTime(),
-                        updated_at = c.DateTime(),
+                        post_date = c.DateTime(nullable: false),
+                        updated_at = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.id);
             
@@ -142,7 +142,7 @@ namespace FootballWebApp.Migrations
                 "dbo.tags",
                 c => new
                     {
-                        id = c.Int(nullable: false,identity:true),
+                        id = c.Int(nullable: false, identity: true),
                         tag_title = c.String(nullable: false),
                         post_id = c.Int(nullable: false),
                     })
