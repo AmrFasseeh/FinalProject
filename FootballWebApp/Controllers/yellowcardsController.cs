@@ -15,12 +15,12 @@ namespace FootballWebApp.Controllers
         private FootballDB db = new FootballDB();
 
         // GET: yellowcards
-        public ActionResult Index()
+/*        public ActionResult Index()
         {
             var yellow_cards = db.yellow_cards.Include(y => y.match).Include(y => y.player).Include(y => y.team);
             return View(yellow_cards.ToList());
         }
-
+*/
         // GET: yellowcards/Details/5
         public ActionResult Details(int? id)
         {
@@ -71,7 +71,7 @@ namespace FootballWebApp.Controllers
                 }
                 db.yellow_cards.Add(yellow_cards);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "matches");
             }
 
             ViewBag.match_id = yellow_cards.match_id;

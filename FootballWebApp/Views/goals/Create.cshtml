@@ -1,11 +1,11 @@
 ﻿@model FootballWebApp.Models.goal
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Add a Goal";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Add a Goal</h2>
 
 
 @using (Html.BeginForm())
@@ -13,8 +13,6 @@
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>goal</h4>
-    <hr />
 
     <input type="hidden" value="@ViewBag.match_id" name="match_id" />
 
@@ -49,15 +47,11 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+            <input type="submit" value="Create" class="btn btn-primary" />
         </div>
     </div>
 </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

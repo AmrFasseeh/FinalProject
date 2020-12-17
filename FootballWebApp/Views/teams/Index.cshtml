@@ -75,7 +75,7 @@
                             {
                                 <tr>
                                     <td>
-                                        <a href="@Url.Action("getSingleTeam", "teams", new { id = @team.team_id})">@team.name</a>
+                                        <a href="@Url.Action("getSingleTeam", "teams", new { id = @team.team_id })">@team.name</a>
                                     </td>
                                     <td>
                                         @team.coach
@@ -100,7 +100,6 @@
                                     </td>
                                     <td>
                                         @Html.ActionLink("Edit", "Edit", new { id = team.team_id }) |
-                                        @Html.ActionLink("Details", "Details", new { id = team.team_id }) |
                                         @Html.ActionLink("Delete", "Delete", new { id = team.team_id }) |
                                         @Html.ActionLink("Add Players", "Create", "players", new { id = team.team_id }, null)
                                     </td>

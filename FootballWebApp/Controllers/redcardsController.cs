@@ -15,11 +15,11 @@ namespace FootballWebApp.Controllers
         private FootballDB db = new FootballDB();
 
         // GET: redcards
-        public ActionResult Index()
+        /*public ActionResult Index()
         {
             var red_cards = db.red_cards.Include(r => r.match).Include(r => r.player).Include(r => r.team);
             return View(red_cards.ToList());
-        }
+        }*/
 
         // GET: redcards/Details/5
         public ActionResult Details(int? id)
@@ -37,11 +37,18 @@ namespace FootballWebApp.Controllers
         }
 
         // GET: redcards/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.match_id = new SelectList(db.matches, "match_id", "date");
-            ViewBag.player_id = new SelectList(db.players, "player_id", "fullname");
-            ViewBag.team_id = new SelectList(db.teams, "team_id", "name");
+            ViewBag.match_id = id;
+            var match = db.matches.Find(id);
+            var team1 = match.TeamMatches.First(m => m.match_id == match.match_id);
+            var team2 = match.TeamMatches.Last(m => m.match_id == match.match_id);
+            List<TeamMatch> teams = new List<TeamMatch>();
+            teams.Add(team1);
+            teams.Add(team2);
+            ViewBag.players1_id = db.players.Where(p => p.team_id == team1.team_id);
+            ViewBag.players2_id = db.players.Where(p => p.team_id == team2.team_id);
+            ViewBag.teams = teams;
             return View();
         }
 
@@ -50,18 +57,33 @@ namespace FootballWebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "red_card_id,match_id,player_id,team_id")] red_cards red_cards)
+        public ActionResult Create([Bind(Include = "red_card_id, match_id, team_id")] red_cards red_cards, int player_id_1, int player_id_2)
         {
             if (ModelState.IsValid)
             {
+                if (player_id_1 != 0 && player_id_2 == 0)
+                {
+                    red_cards.player_id = player_id_1;
+                }
+                else if (player_id_1 == 0 && player_id_2 != 0)
+                {
+                    red_cards.player_id = player_id_2;
+                }
                 db.red_cards.Add(red_cards);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "matches");
             }
 
-            ViewBag.match_id = new SelectList(db.matches, "match_id", "date", red_cards.match_id);
-            ViewBag.player_id = new SelectList(db.players, "player_id", "fullname", red_cards.player_id);
-            ViewBag.team_id = new SelectList(db.teams, "team_id", "name", red_cards.team_id);
+            ViewBag.match_id = red_cards.match_id;
+            var match = db.matches.Find(red_cards.match_id);
+            var team1 = match.TeamMatches.First(m => m.match_id == match.match_id);
+            var team2 = match.TeamMatches.Last(m => m.match_id == match.match_id);
+            List<TeamMatch> teams = new List<TeamMatch>();
+            teams.Add(team1);
+            teams.Add(team2);
+            ViewBag.players1_id = db.players.Where(p => p.team_id == team1.team_id);
+            ViewBag.players2_id = db.players.Where(p => p.team_id == team2.team_id);
+            ViewBag.teams = teams;
             return View(red_cards);
         }
 

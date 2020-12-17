@@ -55,7 +55,7 @@
                                         {
                                             <tr>
                                                 <td>
-                                                    @player.fullname
+                                                    <a href="@Url.Action("Details", "players", new { id=player.player_id })">@player.fullname</a>
                                                 </td>
                                                 <td>
                                                     @player.number

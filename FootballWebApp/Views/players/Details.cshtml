@@ -1,51 +1,47 @@
 ﻿@model FootballWebApp.Models.player
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = @Model.fullname;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+    <!-- Profile Card -->
+    <div class="col-lg-6 col-md-6 col-12">
+        <div class="card card-profile">
+            <img src="@Url.Content("~/Content/images/cover.jpg")"
+                 class="img-fluid card-img-top"
+                 alt="Profile Cover Photo" />
+            <div class="card-body">
+                <div class="profile-image-wrapper">
+                    <div class="profile-image">
+                        <div class="avatar">
+                            <img src="@Url.Content("~/Content/images/default-user-image.png")" alt="Profile Picture" />
+                        </div>
+                    </div>
+                </div>
+                <h3>@Model.fullname</h3>
+                <h6 class="text-muted">Age: @Model.age</h6>
+                <div class="badge badge-light-primary profile-badge font-large-1">@Model.number</div>
+                <hr class="mb-2" />
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="text-muted font-weight-bolder">Goals</h6>
+                        <h3 class="mb-0">@Model.goals.Count</h3>
+                    </div>
+                    <div>
+                        <h6 class="text-muted font-weight-bolder">Yellow Cards</h6>
+                        <h3 class="mb-0">@Model.yellow_cards.Count</h3>
+                    </div>
+                    <div>
+                        <h6 class="text-muted font-weight-bolder">Red Cards</h6>
+                        <h3 class="mb-0">@Model.red_cards.Count</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ Profile Card -->
 
-<div>
-    <h4>player</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.team.name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.team.name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.fullname)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fullname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.age)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.age)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.number)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.number)
-        </dd>
-
-    </dl>
-</div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.player_id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Team", "getSingleTeam", "teams", new { id = Model.team_id })
 </p>

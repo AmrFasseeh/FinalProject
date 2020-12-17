@@ -201,6 +201,10 @@
     <Compile Include="Migrations\202012150332053_first.Designer.cs">
       <DependentUpon>202012150332053_first.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012170000438_AddRequiredtoMatchStatus.cs" />
+    <Compile Include="Migrations\202012170000438_AddRequiredtoMatchStatus.Designer.cs">
+      <DependentUpon>202012170000438_AddRequiredtoMatchStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FootballDB.cs" />
@@ -662,6 +666,7 @@
     <Content Include="Content\images\banner\banner-9.jpg" />
     <Content Include="Content\images\banner\banner.png" />
     <Content Include="Content\images\banner\parallax-4.jpg" />
+    <Content Include="Content\images\default-user-image.png" />
     <Content Include="Content\images\elements\apple-watch.png" />
     <Content Include="Content\images\elements\decore-left.png" />
     <Content Include="Content\images\elements\decore-right.png" />
@@ -1041,7 +1046,6 @@
     <Content Include="Views\matches\Index.cshtml" />
     <Content Include="Views\teams\Create.cshtml" />
     <Content Include="Views\teams\Delete.cshtml" />
-    <Content Include="Views\teams\Details.cshtml" />
     <Content Include="Views\teams\Edit.cshtml" />
     <Content Include="Views\teams\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -1075,6 +1079,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202012150332053_first.resx">
       <DependentUpon>202012150332053_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012170000438_AddRequiredtoMatchStatus.resx">
+      <DependentUpon>202012170000438_AddRequiredtoMatchStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

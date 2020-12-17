@@ -15,11 +15,11 @@ namespace FootballWebApp.Controllers
         private FootballDB db = new FootballDB();
 
         // GET: goals
-        public ActionResult Index()
+        /*public ActionResult Index()
         {
             var goals = db.goals.Include(g => g.match).Include(g => g.player);
             return View(goals.ToList());
-        }
+        }*/
 
         // GET: goals/Details/5
         public ActionResult Details(int? id)
@@ -62,72 +62,41 @@ namespace FootballWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(player_id1 != 0)
+                if (player_id1 != 0)
                 {
                     goal.player_id = player_id1;
                 }
-                else if(player_id2 != 0)
+                else if (player_id2 != 0)
                 {
                     goal.player_id = player_id2;
                 }
                 var teams = db.TeamMatches.Where(a => a.match_id == goal.match_id);
-                
+
                 db.goals.Add(goal);
                 foreach (var item in teams)
                 {
                     if (item.team.team_id == db.players.Find(goal.player_id).team_id)
                     {
-                        if (item.team.goals_for == null)
-                        {
-                            item.team.goals_for = 0;
-                            item.team.goals_for++;
-                        }
-                        else
-                        {
-                            item.team.goals_for++;
-                        }
+
+                        item.team.goals_for++;
                         var match = db.matches.First(a => a.match_id == goal.match_id);
                         if (item.home_Away == "home")
                         {
-                            if (match.team1_score == null)
-                            {
-                                match.team1_score = 0;
-                                match.team1_score++;
-                            }
-                            else
-                            {
-                                match.team1_score++;
-                            }
+                            match.team1_score++;
                         }
                         else if (item.home_Away == "away")
                         {
-                            if (match.team2_score == null)
-                            {
-                                match.team2_score = 0;
-                                match.team2_score++;
-                            }
-                            else
-                            {
-                                match.team2_score++;
-                            }
+                            match.team2_score++;
                         }
                     }
                     else
                     {
-                        if (item.team.goals_against == null)
-                        {
-                            item.team.goals_against = 0;
-                            item.team.goals_against++;
-                        }
-                        else
-                        {
-                            item.team.goals_against++;
-                        }
+                        item.team.goals_against++;
                     }
-                    
+
                 }
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "matches");
             }
 
             var selectedMatch = db.TeamMatches.Where(a => a.match_id == goal.match_id);

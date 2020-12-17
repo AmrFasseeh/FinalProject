@@ -30,6 +30,7 @@ namespace FootballWebApp.Models
         public string date { get; set; }
 
         [StringLength(50)]
+        [Required]
         [Display(Name ="Match Status")]
         public string status { get; set; }
 
