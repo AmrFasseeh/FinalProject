@@ -7,13 +7,13 @@ namespace FootballWebApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class PostDatesEdit : IMigrationMetadata
+    public sealed partial class addapis : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PostDatesEdit));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addapis));
         
         string IMigrationMetadata.Id
         {
-            get { return "202012170930409_PostDatesEdit"; }
+            get { return "202012171543476_addapis"; }
         }
         
         string IMigrationMetadata.Source

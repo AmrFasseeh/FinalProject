@@ -185,31 +185,33 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\goalsApiController.cs" />
     <Compile Include="Controllers\goalsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\leaguesApiController.cs" />
     <Compile Include="Controllers\leaguesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\matchesApiController.cs" />
     <Compile Include="Controllers\matchesController.cs" />
+    <Compile Include="Controllers\playersApiController.cs" />
     <Compile Include="Controllers\playersController.cs" />
+    <Compile Include="Controllers\postsApiController.cs" />
     <Compile Include="Controllers\postsController.cs" />
+    <Compile Include="Controllers\redcardsApiController.cs" />
     <Compile Include="Controllers\redcardsController.cs" />
+    <Compile Include="Controllers\tagsAPiController.cs" />
     <Compile Include="Controllers\tagsController.cs" />
+    <Compile Include="Controllers\TeamMatchesApiController.cs" />
+    <Compile Include="Controllers\teamsApiController.cs" />
     <Compile Include="Controllers\teamsController.cs" />
+    <Compile Include="Controllers\yellowcardsApiController.cs" />
     <Compile Include="Controllers\yellowcardsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202012170822359_first.cs" />
-    <Compile Include="Migrations\202012170822359_first.Designer.cs">
-      <DependentUpon>202012170822359_first.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012170921441_MatchesDateEdit.cs" />
-    <Compile Include="Migrations\202012170921441_MatchesDateEdit.Designer.cs">
-      <DependentUpon>202012170921441_MatchesDateEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012170930409_PostDatesEdit.cs" />
-    <Compile Include="Migrations\202012170930409_PostDatesEdit.Designer.cs">
-      <DependentUpon>202012170930409_PostDatesEdit.cs</DependentUpon>
+    <Compile Include="Migrations\202012171543476_addapis.cs" />
+    <Compile Include="Migrations\202012171543476_addapis.Designer.cs">
+      <DependentUpon>202012171543476_addapis.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1091,14 +1093,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202012170822359_first.resx">
-      <DependentUpon>202012170822359_first.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012170921441_MatchesDateEdit.resx">
-      <DependentUpon>202012170921441_MatchesDateEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012170930409_PostDatesEdit.resx">
-      <DependentUpon>202012170930409_PostDatesEdit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012171543476_addapis.resx">
+      <DependentUpon>202012171543476_addapis.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
