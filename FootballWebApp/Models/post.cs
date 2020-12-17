@@ -34,9 +34,10 @@ namespace FootballWebApp.Models
         [Display(Name = "Post Type")]
         public string post_type { get; set; }
 
-        public DateTime post_date { get; set; }
-
-        public DateTime updated_at { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public DateTime? post_date { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public DateTime? updated_at { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tag> tags { get; set; }

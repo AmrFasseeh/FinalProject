@@ -28,6 +28,7 @@ namespace FootballWebApp.Models
         [StringLength(50)]
         [Display(Name ="Date")]
         [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public string date { get; set; }
 
         [StringLength(50)]

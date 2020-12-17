@@ -1,0 +1,102 @@
+﻿@model FootballWebApp.Models.post
+
+@{
+    ViewBag.Title = "Create a Post";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>post</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.post_title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.post_title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.post_title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.post_content, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.post_content, 5, 120, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.post_content, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.post_image, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.post_image, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.post_image, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.post_type, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.RadioButtonFor(model => model.post_type, "News") News <br />
+            @Html.RadioButtonFor(model => model.post_type, "Media") Media <br />
+            @Html.RadioButtonFor(model => model.post_type, "Report") Report <br />
+            @Html.ValidationMessageFor(model => model.post_type, "Choose a type", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.post_date, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text"
+                   id="fp-date-time"
+                   class="form-control flatpickr-date-time"
+                   placeholder="YYYY-MM-DD HH:MM"
+                   name="date" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.updated_at, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text"
+                   id="fp1-date-time"
+                   class="form-control flatpickr-date-time"
+                   placeholder="YYYY-MM-DD HH:MM"
+                   name="date" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to Posts", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        $("#fp-date-time").flatpickr({
+            enableTime: true,
+            dateFormat: "Y-m-d h:i K",
+        });
+        $("#fp1-date-time").flatpickr({
+            enableTime: true,
+            dateFormat: "Y-m-d h:i K",
+        });
+
+    </script>
+}

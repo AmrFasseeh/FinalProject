@@ -7,13 +7,13 @@ namespace FootballWebApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddRequiredToSomeProperties : IMigrationMetadata
+    public sealed partial class first : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddRequiredToSomeProperties));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(first));
         
         string IMigrationMetadata.Id
         {
-            get { return "202012170102567_AddRequiredToSomeProperties"; }
+            get { return "202012170647201_first"; }
         }
         
         string IMigrationMetadata.Source

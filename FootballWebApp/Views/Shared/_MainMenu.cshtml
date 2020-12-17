@@ -39,7 +39,7 @@
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li class="nav-item active">
-                <a class="d-flex align-items-center" href="@Url.Action("Index", "Home")"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Home">Home</span><span class="badge badge-light-warning badge-pill ml-auto mr-1">2</span></a>
+                <a class="d-flex align-items-center" href="@Url.Action("Index", "Home")"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Home">Home</span></a>
             </li>
             <li class=" navigation-header">
                 <span data-i18n="Apps Pages">Main Menu</span><i data-feather="more-horizontal"></i>
@@ -66,6 +66,17 @@
                     </li>
                     <li>
                         <a class="d-flex align-items-center" href="@Url.Action("Create", "matches")"><i data-feather="circle"></i><span class="menu-item" data-i18n="create-match">Create Match</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="#"><i data-feather="check-square"></i><span class="menu-title text-truncate" data-i18n="posts">Posts</span></a>
+                <ul class="menu-content">
+                    <li>
+                        <a class="d-flex align-items-center" href="@Url.Action("Index", "posts")"><i data-feather="circle"></i><span class="menu-item" data-i18n="view-posts">View Posts</span></a>
+                    </li>
+                    <li>
+                        <a class="d-flex align-items-center" href="@Url.Action("Create", "posts")"><i data-feather="circle"></i><span class="menu-item" data-i18n="create-post">Create Post</span></a>
                     </li>
                 </ul>
             </li>

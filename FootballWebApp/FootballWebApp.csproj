@@ -191,23 +191,17 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\matchesController.cs" />
     <Compile Include="Controllers\playersController.cs" />
+    <Compile Include="Controllers\postsController.cs" />
     <Compile Include="Controllers\redcardsController.cs" />
+    <Compile Include="Controllers\tagsController.cs" />
     <Compile Include="Controllers\teamsController.cs" />
     <Compile Include="Controllers\yellowcardsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202012150332053_first.cs" />
-    <Compile Include="Migrations\202012150332053_first.Designer.cs">
-      <DependentUpon>202012150332053_first.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012170000438_AddRequiredtoMatchStatus.cs" />
-    <Compile Include="Migrations\202012170000438_AddRequiredtoMatchStatus.Designer.cs">
-      <DependentUpon>202012170000438_AddRequiredtoMatchStatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012170102567_AddRequiredToSomeProperties.cs" />
-    <Compile Include="Migrations\202012170102567_AddRequiredToSomeProperties.Designer.cs">
-      <DependentUpon>202012170102567_AddRequiredToSomeProperties.cs</DependentUpon>
+    <Compile Include="Migrations\202012170647201_first.cs" />
+    <Compile Include="Migrations\202012170647201_first.Designer.cs">
+      <DependentUpon>202012170647201_first.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1063,6 +1057,16 @@
     <Content Include="Views\Shared\_header.cshtml" />
     <Content Include="Views\Shared\_MainMenu.cshtml" />
     <Content Include="Views\teams\getSingleTeam.cshtml" />
+    <Content Include="Views\posts\Create.cshtml" />
+    <Content Include="Views\posts\Delete.cshtml" />
+    <Content Include="Views\posts\Details.cshtml" />
+    <Content Include="Views\posts\Edit.cshtml" />
+    <Content Include="Views\posts\Index.cshtml" />
+    <Content Include="Views\tags\Create.cshtml" />
+    <Content Include="Views\tags\Delete.cshtml" />
+    <Content Include="Views\tags\Details.cshtml" />
+    <Content Include="Views\tags\Edit.cshtml" />
+    <Content Include="Views\tags\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1079,14 +1083,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202012150332053_first.resx">
-      <DependentUpon>202012150332053_first.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012170000438_AddRequiredtoMatchStatus.resx">
-      <DependentUpon>202012170000438_AddRequiredtoMatchStatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012170102567_AddRequiredToSomeProperties.resx">
-      <DependentUpon>202012170102567_AddRequiredToSomeProperties.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012170647201_first.resx">
+      <DependentUpon>202012170647201_first.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

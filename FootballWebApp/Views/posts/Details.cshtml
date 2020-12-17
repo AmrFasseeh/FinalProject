@@ -1,0 +1,67 @@
+﻿@model FootballWebApp.Models.post
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>post</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.post_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.post_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.post_content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.post_content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.post_image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.post_image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.post_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.post_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.post_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.post_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updated_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updated_at)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

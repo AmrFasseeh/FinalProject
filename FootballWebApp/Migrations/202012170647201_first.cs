@@ -28,8 +28,8 @@ namespace FootballWebApp.Migrations
                         match_id = c.Int(nullable: false, identity: true),
                         team1_score = c.Int(nullable: false),
                         team2_score = c.Int(nullable: false),
-                        date = c.String(maxLength: 50),
-                        status = c.String(maxLength: 50),
+                        date = c.String(nullable: false, maxLength: 50),
+                        status = c.String(nullable: false, maxLength: 50),
                     })
                 .PrimaryKey(t => t.match_id);
             
@@ -55,9 +55,9 @@ namespace FootballWebApp.Migrations
                 c => new
                     {
                         player_id = c.Int(nullable: false, identity: true),
-                        fullname = c.String(maxLength: 255),
-                        age = c.Int(),
-                        number = c.Int(),
+                        fullname = c.String(nullable: false, maxLength: 255),
+                        age = c.Int(nullable: false),
+                        number = c.Int(nullable: false),
                         team_id = c.Int(),
                     })
                 .PrimaryKey(t => t.player_id)
@@ -69,8 +69,8 @@ namespace FootballWebApp.Migrations
                 c => new
                     {
                         team_id = c.Int(nullable: false, identity: true),
-                        name = c.String(maxLength: 255),
-                        coach = c.String(maxLength: 255),
+                        name = c.String(nullable: false, maxLength: 255),
+                        coach = c.String(nullable: false, maxLength: 255),
                         goals_for = c.Int(nullable: false),
                         goals_against = c.Int(nullable: false),
                         points = c.Int(nullable: false),
@@ -88,8 +88,8 @@ namespace FootballWebApp.Migrations
                 c => new
                     {
                         league_id = c.Int(nullable: false, identity: true),
-                        name = c.String(maxLength: 255),
-                        countries = c.String(maxLength: 255),
+                        name = c.String(nullable: false, maxLength: 255),
+                        countries = c.String(nullable: false, maxLength: 255),
                     })
                 .PrimaryKey(t => t.league_id);
             
@@ -130,11 +130,11 @@ namespace FootballWebApp.Migrations
                     {
                         id = c.Int(nullable: false, identity: true),
                         post_title = c.String(nullable: false),
-                        post_content = c.String(unicode: false, storeType: "text"),
+                        post_content = c.String(nullable: false, unicode: false, storeType: "text"),
                         post_image = c.String(maxLength: 50),
-                        post_type = c.String(maxLength: 50),
-                        post_date = c.DateTime(nullable: false),
-                        updated_at = c.DateTime(nullable: false),
+                        post_type = c.String(nullable: false, maxLength: 50),
+                        post_date = c.DateTime(),
+                        updated_at = c.DateTime(),
                     })
                 .PrimaryKey(t => t.id);
             
@@ -142,8 +142,8 @@ namespace FootballWebApp.Migrations
                 "dbo.tags",
                 c => new
                     {
-                        id = c.Int(nullable: false),
-                        tag_title = c.String(),
+                        id = c.Int(nullable: false,identity:true),
+                        tag_title = c.String(nullable: false),
                         post_id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.id)

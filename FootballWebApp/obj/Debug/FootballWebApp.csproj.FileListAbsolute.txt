@@ -452,8 +452,6 @@ D:\ITI\FinalProject\FinalProject\FootballWebApp\bin\Microsoft.Owin.Security.Micr
 D:\ITI\FinalProject\FinalProject\FootballWebApp\bin\Microsoft.Owin.Security.OAuth.xml
 D:\ITI\FinalProject\FinalProject\FootballWebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.csprojAssemblyReference.cache
-D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.first.resources
-D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.csproj.GenerateResource.cache
 D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.csproj.CoreCompileInputs.cache
 D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.csproj.CopyComplete
 D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.dll
@@ -578,3 +576,5 @@ E:\ITI\.Net repo\final project\FinalProject\FootballWebApp\obj\Debug\FootballWeb
 E:\ITI\.Net repo\final project\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.pdb
 E:\ITI\.Net repo\final project\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.AddRequiredtoMatchStatus.resources
 E:\ITI\.Net repo\final project\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.AddRequiredToSomeProperties.resources
+D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.first.resources
+D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.csproj.GenerateResource.cache
