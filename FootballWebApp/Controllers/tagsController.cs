@@ -15,11 +15,11 @@ namespace FootballWebApp.Controllers
         private FootballDB db = new FootballDB();
 
         // GET: tags
-        //public ActionResult Index()
-        //{
-        //    var tags = db.tags.Include(t => t.post);
-        //    return View(tags.ToList());
-        //}
+        public ActionResult Index()
+        {
+            var tags = db.tags.Include(t => t.post);
+            return View(tags.ToList());
+        }
 
         // GET: tags/Details/5
         //public ActionResult Details(int? id)

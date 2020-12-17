@@ -58,7 +58,13 @@
         <dd>
             @Html.DisplayFor(model => model.updated_at)
         </dd>
-
+        <dd>
+            Related Tags <br />
+            @foreach(var item in Model.tags)
+            {
+                @item.tag_title <br />
+            }
+        </dd>
     </dl>
 </div>
 <p>

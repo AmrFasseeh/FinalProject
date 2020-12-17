@@ -578,3 +578,5 @@ D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrati
 D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.csproj.GenerateResource.cache
 E:\ITI\.Net repo\final project\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.MatchesDateEdit.resources
 E:\ITI\.Net repo\final project\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.PostDatesEdit.resources
+D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.MatchesDateEdit.resources
+D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.PostDatesEdit.resources
