@@ -574,7 +574,7 @@ E:\ITI\.Net repo\final project\FinalProject\FootballWebApp\obj\Debug\FootballWeb
 E:\ITI\.Net repo\final project\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.csproj.CopyComplete
 E:\ITI\.Net repo\final project\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.dll
 E:\ITI\.Net repo\final project\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.pdb
-E:\ITI\.Net repo\final project\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.AddRequiredtoMatchStatus.resources
-E:\ITI\.Net repo\final project\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.AddRequiredToSomeProperties.resources
 D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.first.resources
 D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.csproj.GenerateResource.cache
+E:\ITI\.Net repo\final project\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.MatchesDateEdit.resources
+E:\ITI\.Net repo\final project\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.PostDatesEdit.resources

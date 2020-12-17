@@ -46,10 +46,12 @@ namespace FootballWebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,post_title,post_content,post_image,post_type,post_date,updated_at")] post post)
+        public ActionResult Create([Bind(Include = "id,post_title,post_content,post_image,post_type")] post post)
         {
             if (ModelState.IsValid)
             {
+                post.post_date = DateTime.Now.ToString();
+                post.updated_at = DateTime.Now.ToString();
                 db.posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,10 +80,11 @@ namespace FootballWebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,post_title,post_content,post_image,post_type,post_date,updated_at")] post post)
+        public ActionResult Edit([Bind(Include = "id,post_title,post_content,post_image,post_type,post_date")] post post)
         {
             if (ModelState.IsValid)
             {
+                post.updated_at = DateTime.Now.ToString();
                 db.Entry(post).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

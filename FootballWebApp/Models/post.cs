@@ -33,8 +33,8 @@ namespace FootballWebApp.Models
         [Required]
         [Display(Name = "Post Type")]
         public string post_type { get; set; }
-        public DateTime post_date { get; set; }
-        public DateTime updated_at { get; set; }
+        public string post_date { get; set; }
+        public string updated_at { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tag> tags { get; set; }
