@@ -6,63 +6,102 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Matches Panel</h2>
 
-<table class="table">
-    <tr>
+<div class="card mb-4">
+    <div class="card-body">
+        <section id="row-grouping-datatable">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header border-bottom">
+                            <h4 class="card-title">Matches Panel</h4>
+                        </div>
+                        <div class="card-datatable">
+                            <table class="dt-row-grouping table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Home
+                                        </th>
+                                        <th>
+                                            Away
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.team1_score)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.team2_score)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.date)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.status)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @item.TeamMatches.First(x => x.match_id == item.match_id && x.home_Away == "home").team.name
+                                            </td>
+                                            <td>
+                                                @item.TeamMatches.Last(x => x.match_id == item.match_id && x.home_Away == "away").team.name
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.team1_score)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.team2_score)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.date)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.status)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.match_id }) |
+                                                @Html.ActionLink("Details", "Details", new { id = item.match_id }) |
+                                                @Html.ActionLink("Add Goals", "Create", "goals", new { id = item.match_id }, null) |
+                                                @Html.ActionLink("Add Yellow Card", "Create", "yellowcards", new { id = item.match_id }, null) |
+                                                @Html.ActionLink("Add Red Card", "Create", "redcards", new { id = item.match_id }, null)
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
 
-        <th>
-            Home
-        </th>
-        <th>
-            Away
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.team1_score)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.team2_score)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.status)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @item.TeamMatches.First(x => x.match_id == item.match_id && x.home_Away == "home").team.name
-            </td>
-            <td>
-                @item.TeamMatches.Last(x => x.match_id == item.match_id && x.home_Away == "away").team.name
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.team1_score)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.team2_score)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.status)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.match_id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.match_id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.match_id }) |
-                @Html.ActionLink("Add Goals", "Create", "goals", new { id = item.match_id }, null) |
-                @Html.ActionLink("Add Yellow Card", "Create", "yellowcards", new { id = item.match_id }, null) |
-                @Html.ActionLink("Add Red Card", "Create", "redcards", new { id = item.match_id }, null)
-            </td>
-        </tr>
-    }
-
-</table>
-
+                                        <th>
+                                            Home
+                                        </th>
+                                        <th>
+                                            Away
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.team1_score)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.team2_score)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.date)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.status)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

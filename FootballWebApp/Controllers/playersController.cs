@@ -15,14 +15,14 @@ namespace FootballWebApp.Controllers
         private FootballDB db = new FootballDB();
 
         // GET: players
-        public ActionResult Index(int? id)
+        /*public ActionResult Index(int? id)
         {
             var players = db.players.Where(p => p.team_id==id);
             var teams = db.teams;
             ViewBag.currentTeam = id;
             ViewBag.teams = teams;
             return View(players.ToList());
-        }
+        }*/
 
         // GET: players/Details/5
         public ActionResult Details(int? id)
@@ -60,7 +60,7 @@ namespace FootballWebApp.Controllers
                 player.team_id = team_id;
                 db.players.Add(player);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("getSingleTeam", "teams", new { id = player.team_id });
             }
 
             var selectedTeam = db.teams.Single(t => t.team_id == player.team_id);

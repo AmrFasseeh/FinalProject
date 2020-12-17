@@ -5,37 +5,84 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Leagues Panel</h2>
-
-<p>
-    @Html.ActionLink("Add a League", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.countries)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.countries)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.league_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.league_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.league_id }) |
-            @Html.ActionLink("Add a Team", "Create", "teams", new { id=item.league_id }, null)
-        </td>
-    </tr>
+@section styles {
+    @Styles.Render("~/Content/app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css")
+    @Styles.Render("~/Content/app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css")
 }
 
-</table>
+
+
+<div class="card mb-4">
+    <div class="card-body">
+
+
+        <section id="row-grouping-datatable">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header border-bottom">
+                            <h4 class="card-title">Leagues Panel</h4>
+                        </div>
+                        <div class="card-datatable">
+                            <table class="dt-row-grouping table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.name)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.countries)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.countries)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.league_id }) |
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.league_id }) |
+                                                @Html.ActionLink("Add a Team", "Create", "teams", new { id = item.league_id }, null)
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.name)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.countries)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/datatables/jquery.dataTables.min.js")
+    @Scripts.Render("~/Scripts/vendors/js/tables/datatable/datatables.bootstrap4.min.js")
+    @Scripts.Render("~/Scripts/vendors/js/tables/datatable/dataTables.responsive.min.js")
+    @Scripts.Render("~/Scripts/vendors/js/tables/datatable/responsive.bootstrap4.js")
+    @Scripts.Render("~/Scripts/vendors/js/pickers/flatpickr/flatpickr.min.js")
+    @Scripts.Render("~/Scripts/js/scripts/tables/table-datatables-advanced.min.js")
+}
+

@@ -205,6 +205,10 @@
     <Compile Include="Migrations\202012170000438_AddRequiredtoMatchStatus.Designer.cs">
       <DependentUpon>202012170000438_AddRequiredtoMatchStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012170102567_AddRequiredToSomeProperties.cs" />
+    <Compile Include="Migrations\202012170102567_AddRequiredToSomeProperties.Designer.cs">
+      <DependentUpon>202012170102567_AddRequiredToSomeProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FootballDB.cs" />
@@ -220,7 +224,6 @@
     <Compile Include="Models\tag.cs" />
     <Compile Include="Models\team.cs" />
     <Compile Include="Models\TeamMatch.cs" />
-    <Compile Include="Models\TeamMatchNamesViewModel.cs" />
     <Compile Include="Models\yellow_cards.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -1023,7 +1026,6 @@
     <Content Include="Views\players\Delete.cshtml" />
     <Content Include="Views\players\Details.cshtml" />
     <Content Include="Views\players\Edit.cshtml" />
-    <Content Include="Views\players\Index.cshtml" />
     <Content Include="Views\goals\Create.cshtml" />
     <Content Include="Views\goals\Delete.cshtml" />
     <Content Include="Views\goals\Details.cshtml" />
@@ -1082,6 +1084,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012170000438_AddRequiredtoMatchStatus.resx">
       <DependentUpon>202012170000438_AddRequiredtoMatchStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012170102567_AddRequiredToSomeProperties.resx">
+      <DependentUpon>202012170102567_AddRequiredToSomeProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

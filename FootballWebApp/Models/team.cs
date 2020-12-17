@@ -22,9 +22,11 @@ namespace FootballWebApp.Models
 
         [StringLength(255)]
         [Display(Name ="Club")]
+        [Required]
         public string name { get; set; }
 
         [StringLength(255)]
+        [Required]
         public string coach { get; set; }
 
         public int goals_for { get; set; }

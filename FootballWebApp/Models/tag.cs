@@ -10,7 +10,8 @@ namespace FootballWebApp.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
-
+        [Display(Name ="Tag Title")]
+        [Required]
         public string tag_title { get; set; }
 
         public int post_id { get; set; }

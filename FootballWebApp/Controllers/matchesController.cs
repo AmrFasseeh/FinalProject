@@ -83,8 +83,8 @@ namespace FootballWebApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.team1 = new SelectList(db.teams.ToList(), "team_id", "name");
-            ViewBag.team2 = new SelectList(db.teams.ToList(), "team_id", "name");
+            ViewBag.team1 = match.TeamMatches.First(m => m.match_id == match.match_id);
+            ViewBag.team2 = match.TeamMatches.Last(m => m.match_id == match.match_id);
             return View(match);
         }
 

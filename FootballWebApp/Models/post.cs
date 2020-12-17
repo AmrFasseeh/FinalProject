@@ -17,15 +17,21 @@ namespace FootballWebApp.Models
         public int id { get; set; }
 
         [Required]
+        [Display(Name = "Post Title")]
         public string post_title { get; set; }
 
         [Column(TypeName = "text")]
+        [Required]
+        [Display(Name = "Post Content")]
         public string post_content { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "Post Image")]
         public string post_image { get; set; }
 
         [StringLength(50)]
+        [Required]
+        [Display(Name = "Post Type")]
         public string post_type { get; set; }
 
         public DateTime post_date { get; set; }
