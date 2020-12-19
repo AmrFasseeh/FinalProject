@@ -185,26 +185,16 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\goalsApiController.cs" />
     <Compile Include="Controllers\goalsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\leaguesApiController.cs" />
     <Compile Include="Controllers\leaguesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\matchesApiController.cs" />
     <Compile Include="Controllers\matchesController.cs" />
-    <Compile Include="Controllers\playersApiController.cs" />
     <Compile Include="Controllers\playersController.cs" />
-    <Compile Include="Controllers\postsApiController.cs" />
     <Compile Include="Controllers\postsController.cs" />
-    <Compile Include="Controllers\redcardsApiController.cs" />
     <Compile Include="Controllers\redcardsController.cs" />
-    <Compile Include="Controllers\tagsApiController.cs" />
     <Compile Include="Controllers\tagsController.cs" />
-    <Compile Include="Controllers\TeamMatchesApiController.cs" />
-    <Compile Include="Controllers\teamsApiController.cs" />
     <Compile Include="Controllers\teamsController.cs" />
-    <Compile Include="Controllers\yellowcardsApiController.cs" />
     <Compile Include="Controllers\yellowcardsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
