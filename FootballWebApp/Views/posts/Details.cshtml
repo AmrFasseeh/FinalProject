@@ -60,9 +60,9 @@
         </dd>
         <dd>
             Related Tags <br />
-            @foreach(var item in Model.tags)
+            @foreach(var item in Model.PostTags)
             {
-                @item.tag_title <br />
+                @item.Tag.tag_title <br />
             }
         </dd>
     </dl>

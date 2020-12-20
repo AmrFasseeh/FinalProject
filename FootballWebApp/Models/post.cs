@@ -11,7 +11,7 @@ namespace FootballWebApp.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public post()
         {
-            tags = new HashSet<tag>();
+            PostTags = new HashSet<PostTag>();
         }
 
         public int id { get; set; }
@@ -37,6 +37,6 @@ namespace FootballWebApp.Models
         public string updated_at { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tag> tags { get; set; }
+        public virtual ICollection<PostTag> PostTags { get; set; }
     }
 }

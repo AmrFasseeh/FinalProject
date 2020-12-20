@@ -17,8 +17,7 @@ namespace FootballWebApp.Controllers
         // GET: tags
         public ActionResult Index()
         {
-            var tags = db.tags.Include(t => t.post);
-            return View(tags.ToList());
+            return View(db.tags.ToList());
         }
 
         // GET: tags/Details/5
@@ -37,10 +36,8 @@ namespace FootballWebApp.Controllers
         //}
 
         // GET: tags/Create
-        public ActionResult Create(int id)
+        public ActionResult Create()
         {
-            ViewBag.post_title = db.posts.Single(p=>p.id==id).post_title;
-            ViewBag.p_id = id;
             return View();
         }
 
@@ -49,17 +46,15 @@ namespace FootballWebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,tag_title")] tag tag,int id)
+        public ActionResult Create([Bind(Include = "id,tag_title")] tag tag)
         {
             if (ModelState.IsValid)
             {
-                tag.post_id = id;
                 db.tags.Add(tag);
                 db.SaveChanges();
-                return RedirectToAction("Index","posts");
+                return RedirectToAction("Index");
             }
 
-            ViewBag.post_id = new SelectList(db.posts, "id", "post_title", tag.post_id);
             return View(tag);
         }
 
@@ -75,7 +70,6 @@ namespace FootballWebApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.post_id = new SelectList(db.posts, "id", "post_title", tag.post_id);
             return View(tag);
         }
 
@@ -84,7 +78,7 @@ namespace FootballWebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,tag_title,post_id")] tag tag)
+        public ActionResult Edit([Bind(Include = "id,tag_title")] tag tag)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +86,6 @@ namespace FootballWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.post_id = new SelectList(db.posts, "id", "post_title", tag.post_id);
             return View(tag);
         }
 

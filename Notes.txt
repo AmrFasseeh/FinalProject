@@ -1,5 +1,0 @@
--Remove create from teams/players/goals
-
--Adjusting return views
-
--Validations of repetitive names

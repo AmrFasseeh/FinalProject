@@ -192,6 +192,7 @@
     <Compile Include="Controllers\matchesController.cs" />
     <Compile Include="Controllers\playersController.cs" />
     <Compile Include="Controllers\postsController.cs" />
+    <Compile Include="Controllers\PostTagsController.cs" />
     <Compile Include="Controllers\redcardsController.cs" />
     <Compile Include="Controllers\tagsController.cs" />
     <Compile Include="Controllers\teamsController.cs" />
@@ -211,6 +212,14 @@
     <Compile Include="Migrations\202012170930409_PostDatesEdit.Designer.cs">
       <DependentUpon>202012170930409_PostDatesEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012192151234_post_tags.cs" />
+    <Compile Include="Migrations\202012192151234_post_tags.Designer.cs">
+      <DependentUpon>202012192151234_post_tags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012192349113_post_tags2.cs" />
+    <Compile Include="Migrations\202012192349113_post_tags2.Designer.cs">
+      <DependentUpon>202012192349113_post_tags2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FootballDB.cs" />
@@ -221,6 +230,7 @@
     <Compile Include="Models\match.cs" />
     <Compile Include="Models\player.cs" />
     <Compile Include="Models\post.cs" />
+    <Compile Include="Models\PostTag.cs" />
     <Compile Include="Models\red_cards.cs" />
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\tag.cs" />
@@ -1072,9 +1082,12 @@
     <Content Include="Views\posts\Index.cshtml" />
     <Content Include="Views\tags\Create.cshtml" />
     <Content Include="Views\tags\Delete.cshtml" />
-    <Content Include="Views\tags\Details.cshtml" />
     <Content Include="Views\tags\Edit.cshtml" />
     <Content Include="Views\tags\Index.cshtml" />
+    <Content Include="Views\PostTags\Create.cshtml" />
+    <Content Include="Views\PostTags\Delete.cshtml" />
+    <Content Include="Views\PostTags\Edit.cshtml" />
+    <Content Include="Views\PostTags\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1099,6 +1112,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012170930409_PostDatesEdit.resx">
       <DependentUpon>202012170930409_PostDatesEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012192151234_post_tags.resx">
+      <DependentUpon>202012192151234_post_tags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012192349113_post_tags2.resx">
+      <DependentUpon>202012192349113_post_tags2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

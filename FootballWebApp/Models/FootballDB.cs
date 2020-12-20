@@ -22,6 +22,7 @@ namespace FootballWebApp.Models
         public virtual DbSet<tag> tags { get; set; }
         public virtual DbSet<team> teams { get; set; }
         public virtual DbSet<TeamMatch> TeamMatches { get; set; }
+        public virtual DbSet<PostTag> PostTags { get; set; }
         public virtual DbSet<yellow_cards> yellow_cards { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -54,11 +55,6 @@ namespace FootballWebApp.Models
             modelBuilder.Entity<post>()
                 .Property(e => e.post_content)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<post>()
-                .HasMany(e => e.tags)
-                .WithRequired(e => e.post)
-                .HasForeignKey(e => e.post_id);
 
 
             modelBuilder.Entity<team>()
