@@ -184,19 +184,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\goalsController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\leaguesController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\matchesController.cs" />
-    <Compile Include="Controllers\playersController.cs" />
-    <Compile Include="Controllers\postsController.cs" />
-    <Compile Include="Controllers\PostTagsController.cs" />
-    <Compile Include="Controllers\redcardsController.cs" />
-    <Compile Include="Controllers\tagsController.cs" />
-    <Compile Include="Controllers\teamsController.cs" />
-    <Compile Include="Controllers\yellowcardsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -220,8 +207,13 @@
     <Compile Include="Migrations\202012192349113_post_tags2.Designer.cs">
       <DependentUpon>202012192349113_post_tags2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012211011121_ContactUs.cs" />
+    <Compile Include="Migrations\202012211011121_ContactUs.Designer.cs">
+      <DependentUpon>202012211011121_ContactUs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ContactUs.cs" />
     <Compile Include="Models\FootballDB.cs" />
     <Compile Include="Models\goal.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -1088,6 +1080,9 @@
     <Content Include="Views\PostTags\Delete.cshtml" />
     <Content Include="Views\PostTags\Edit.cshtml" />
     <Content Include="Views\PostTags\Index.cshtml" />
+    <Content Include="Views\ContactUs\Delete.cshtml" />
+    <Content Include="Views\ContactUs\Details.cshtml" />
+    <Content Include="Views\ContactUs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1118,6 +1113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012192349113_post_tags2.resx">
       <DependentUpon>202012192349113_post_tags2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012211011121_ContactUs.resx">
+      <DependentUpon>202012211011121_ContactUs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

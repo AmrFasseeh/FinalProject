@@ -24,6 +24,7 @@ namespace FootballWebApp.Models
         public virtual DbSet<TeamMatch> TeamMatches { get; set; }
         public virtual DbSet<PostTag> PostTags { get; set; }
         public virtual DbSet<yellow_cards> yellow_cards { get; set; }
+        public virtual DbSet<ContactUs> ContactUs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

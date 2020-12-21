@@ -582,3 +582,4 @@ D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrati
 D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.PostDatesEdit.resources
 D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.post_tags.resources
 D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.post_tags2.resources
+D:\ITI\FinalProject\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.Migrations.ContactUs.resources
