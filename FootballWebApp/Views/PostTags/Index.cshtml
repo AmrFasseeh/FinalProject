@@ -1,0 +1,23 @@
+﻿@model IEnumerable<FootballWebApp.Models.PostTag>
+
+@{
+    ViewBag.Title = "Tags/Posts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tags per Post</h2>
+
+<table class="table">
+    <tr>
+        <th>Tag/Post</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Tag.tag_title / @item.Post.post_title
+            </td>
+        </tr>
+    }
+
+</table>
