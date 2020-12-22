@@ -10,6 +10,7 @@ using FootballWebApp.Models;
 
 namespace FootballWebApp.Controllers
 {
+    [Authorize]
     public class ContactUsController : Controller
     {
         private FootballDB db = new FootballDB();

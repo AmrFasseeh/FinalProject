@@ -70,7 +70,7 @@
         <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
     </footer>
 
-
+    @*<script src="~/Scripts/jquery-3.4.1.min.js"></script>*@
     <!-- BEGIN: Vendor JS-->
     @Scripts.Render("~/Scripts/vendors/js/vendors.min.js")
 
@@ -83,16 +83,6 @@
     @Scripts.Render("~/Scripts/js/core/app.min.js")
     @Scripts.Render("~/Scripts/js/scripts/customizer.min.js")
 
-    <!-- BEGIN: Page JS-->
-    @Scripts.Render("~/Scripts/js/scripts/pages/dashboard-ecommerce.min.js")
-
-    <script>
-        $(window).on('load', function () {
-            if (feather) {
-                feather.replace({ width: 14, height: 14 });
-            }
-        })
-    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

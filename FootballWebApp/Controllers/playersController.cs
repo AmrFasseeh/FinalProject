@@ -10,6 +10,7 @@ using FootballWebApp.Models;
 
 namespace FootballWebApp.Controllers
 {
+    [Authorize]
     public class playersController : Controller
     {
         private FootballDB db = new FootballDB();
