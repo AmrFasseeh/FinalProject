@@ -37,10 +37,16 @@ namespace FootballWebApp.Controllers
         }
 
         // GET: matches/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            ViewBag.team1 = new SelectList(db.teams.ToList(), "team_id", "name");
-            ViewBag.team2 = new SelectList(db.teams.ToList(), "team_id", "name");
+            var selectedTeams = id != null ? db.teams.Where(t => t.league_id == id) : db.teams;
+            ViewBag.league_id = new SelectList(db.leagues.ToList(), "league_id", "name");
+            if(id != null)
+            {
+                ViewBag.league_id = new SelectList(db.leagues.ToList(), "league_id", "name", id);
+            }
+            ViewBag.team1 = new SelectList(selectedTeams, "team_id", "name");
+            ViewBag.team2 = new SelectList(selectedTeams, "team_id", "name");
             return View();
         }
 
@@ -49,7 +55,7 @@ namespace FootballWebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "match_id,date,status")] match match, int team1, int team2)
+        public ActionResult Create([Bind(Include = "match_id,date,status")] match match, int team1, int team2, int league_id)
         {
             TeamMatch teamMatch1 = new TeamMatch();
             TeamMatch teamMatch2 = new TeamMatch();
@@ -69,6 +75,15 @@ namespace FootballWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            var selectedTeams = league_id != null ? db.teams.Where(t => t.league_id == league_id) : db.teams;
+            ViewBag.league_id = new SelectList(db.leagues.ToList(), "league_id", "name");
+            if (league_id != null)
+            {
+                ViewBag.league_id = new SelectList(db.leagues.ToList(), "league_id", "name", league_id);
+            }
+            ViewBag.team1 = new SelectList(selectedTeams, "team_id", "name");
+            ViewBag.team2 = new SelectList(selectedTeams, "team_id", "name");
             return View(match);
         }
 
