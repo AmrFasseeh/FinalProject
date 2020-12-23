@@ -92,18 +92,15 @@
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item">
+            @*<li class=" nav-item">
                 <a class="d-flex align-items-center" href="@Url.Action("Index", "ContactUs")"><i data-feather="message-square"></i><span class="menu-title text-truncate" data-i18n="contact-us">Contact Us</span></a>
-            </li>
+            </li>*@
             <li class="dropdown-divider"></li>
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="#"><i data-feather="Registeration"></i><span class="menu-title text-truncate" data-i18n="Registration">Registration</span></a>
                 <ul class="menu-content">
                     <li>
                         @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "d-flex align-items-center" })
-                    </li>
-                    <li>
-                        @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "d-flex align-items-center" })
                     </li>
                 </ul>
             </li>

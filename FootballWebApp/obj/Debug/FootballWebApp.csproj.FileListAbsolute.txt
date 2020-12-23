@@ -119,3 +119,4 @@ E:\ITI\.Net repo\ITI Final Project\FinalProject\FootballWebApp\obj\Debug\Footbal
 E:\ITI\.Net repo\ITI Final Project\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.csproj.CopyComplete
 E:\ITI\.Net repo\ITI Final Project\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.dll
 E:\ITI\.Net repo\ITI Final Project\FinalProject\FootballWebApp\obj\Debug\FootballWebApp.pdb
+E:\ITI\.Net repo\ITI Final Project\FinalProject\FootballWebApp\bin\Faker.dll

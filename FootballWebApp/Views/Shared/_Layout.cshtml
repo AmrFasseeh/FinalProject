@@ -1,28 +1,34 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title</title>
 
     <!-- BEGIN: Vendor CSS-->
-    @Styles.Render("~/Content/app-assets/vendors/css/vendors.min.css")
-    @Styles.Render("~/Content/app-assets/vendors/css/charts/apexcharts.css")
-    @Styles.Render("~/Content/app-assets/vendors/css/extensions/toastr.min.css")
-
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/charts/apexcharts.css">
+    <!-- END: Vendor CSS-->
     <!-- BEGIN: Theme CSS-->
-    @Styles.Render("~/Content/app-assets/css/bootstrap.min.css")
-    @Styles.Render("~/Content/app-assets/css/bootstrap-extended.min.css")
-    @Styles.Render("~/Content/app-assets/css/colors.min.css")
-    @Styles.Render("~/Content/app-assets/css/components.min.css")
-    @Styles.Render("~/Content/app-assets/css/themes/dark-layout.min.css")
-    @Styles.Render("~/Content/app-assets/css/themes/bordered-layout.min.css")
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/colors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/components.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/themes/dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/themes/bordered-layout.min.css">
 
     <!-- BEGIN: Page CSS-->
-    @Styles.Render("~/Content/app-assets/css/core/menu/menu-types/vertical-menu.min.css")
-    @Styles.Render("~/Content/app-assets/css/pages/dashboard-ecommerce.min.css")
-    @Styles.Render("~/Content/app-assets/css/plugins/charts/chart-apex.min.css")
-    @Styles.Render("~/Content/app-assets/css/plugins/extensions/ext-component-toastr.min.css")
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/core/menu/menu-types/vertical-menu.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/plugins/charts/chart-apex.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/pages/ui-feather.min.css">
+    <!-- END: Page CSS-->
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style.css">
+    <!-- END: Custom CSS-->
+
 
     @RenderSection("styles", required: false)
 
@@ -44,46 +50,36 @@
             </div>
         </div>
     </div>
-    <!-- END: Content-->
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
-                    @Html.Partial("_LoginPartial")
-                </div>
-            </div>
-        </div>*@
+
 
     <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <p>&copy; @DateTime.Now.Year</p>
     </footer>
-
     @*<script src="~/Scripts/jquery-3.4.1.min.js"></script>*@
     <!-- BEGIN: Vendor JS-->
-    @Scripts.Render("~/Scripts/vendors/js/vendors.min.js")
+    <script src="~/Scripts/vendors/js/vendors.min.js"></script>
 
+    <!-- BEGIN Vendor JS-->
     <!-- BEGIN: Page Vendor JS-->
-    @Scripts.Render("~/Scripts/vendors/js/charts/apexcharts.min.js")
-    @Scripts.Render("~/Scripts/vendors/js/extensions/toastr.min.js")
-
+    <script src="~/Scripts/vendors/js/charts/apexcharts.min.js"></script>
+    <!-- END: Page Vendor JS-->
     <!-- BEGIN: Theme JS-->
-    @Scripts.Render("~/Scripts/js/core/app-menu.min.js")
-    @Scripts.Render("~/Scripts/js/core/app.min.js")
-    @Scripts.Render("~/Scripts/js/scripts/customizer.min.js")
-
+    <script src="~/Scripts/js/core/app-menu.min.js"></script>
+    <script src="~/Scripts/js/core/app.min.js"></script>
+    <script src="~/Scripts/js/scripts/customizer.min.js"></script>
+    <script src="https://kit.fontawesome.com/3eed9db04a.js" crossorigin="anonymous"></script>
+    <!-- END: Theme JS-->
+    <!-- BEGIN: Page JS-->
+    <!-- END: Page JS-->
     @RenderSection("scripts", required: false)
+    <script>
+        $(window).on('load', function () {
+            if (feather) {
+                feather.replace({ width: 14, height: 14 });
+            }
+        })
+    </script>
+
 </body>
 </html>
 

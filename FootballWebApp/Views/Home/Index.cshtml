@@ -1,31 +1,129 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿
+    <div class="jumbotron">
+        <h1>Kora4You App Admin Dashboard</h1>
+        <p class="lead">Admin dashboard to add and edit leagues, teams, players and matches data.</p>
+    </div>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+    <div class="row">
+        <div class="col-lg-12 col-12">
+            <div class="card card-statistics">
+                <div class="card-header">
+                    <h4 class="card-title">Statistics</h4>
+                    <div class="d-flex align-items-center">
+                        <p class="card-text mr-25 mb-0">Updated 1 second ago</p>
+                    </div>
+                </div>
+                <div class="card-body statistics-body">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-12 mb-2 mb-md-0">
+                            <div class="media">
+                                <div class="avatar bg-light-primary mr-2">
+                                    <div class="avatar-content">
+                                        <i class="fas fa-futbol fa-2x"></i>
+                                    </div>
+                                </div>
+                                <div class="media-body my-auto">
+                                    <h4 class="font-weight-bolder mb-0">@ViewBag.matches</h4>
+                                    <p class="card-text font-small-3 mb-0">Matches played</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-12 mb-2 mb-md-0">
+                            <div class="media">
+                                <div class="avatar bg-light-info mr-2">
+                                    <div class="avatar-content">
+                                        <i class="fas fa-flag fa-2x"></i>
+                                    </div>
+                                </div>
+                                <div class="media-body my-auto">
+                                    <h4 class="font-weight-bolder mb-0">@ViewBag.leagues</h4>
+                                    <p class="card-text font-small-3 mb-0">Available Leagues</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-12 mb-2 mb-sm-0">
+                            <div class="media">
+                                <div class="avatar bg-light-danger mr-2">
+                                    <div class="avatar-content">
+                                        <i class="fas fa-users fa-2x"></i>
+                                    </div>
+                                </div>
+                                <div class="media-body my-auto">
+                                    <h4 class="font-weight-bolder mb-0">@ViewBag.teams</h4>
+                                    <p class="card-text font-small-3 mb-0">Available Teams</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="media">
+                                <div class="avatar bg-light-success mr-2">
+                                    <div class="avatar-content">
+                                        <i class="fas fa-walking fa-2x"></i>
+                                    </div>
+                                </div>
+                                <div class="media-body my-auto">
+                                    <h4 class="font-weight-bolder mb-0">@ViewBag.players</h4>
+                                    <p class="card-text font-small-3 mb-0">Available Players</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div class="row">
+        <div class="col-lg-12 col-12">
+            <div class="card card-statistics">
+                <div class="card-body statistics-body">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 col-12 mb-2 mb-md-0">
+                            <div class="media">
+                                <div class="avatar bg-light-primary mr-2">
+                                    <div class="avatar-content">
+                                        <i class="fas fa-futbol fa-2x"></i>
+                                    </div>
+                                </div>
+                                <div class="media-body my-auto">
+                                    <h4 class="font-weight-bolder mb-0">@ViewBag.goals</h4>
+                                    <p class="card-text font-small-3 mb-0">Goals Scored</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-12 mb-2 mb-md-0">
+                            <div class="media">
+                                <div class="avatar bg-light-info mr-2">
+                                    <div class="avatar-content">
+                                        <i class="fas fa-exclamation fa-2x"></i>
+                                    </div>
+                                </div>
+                                <div class="media-body my-auto">
+                                    <h4 class="font-weight-bolder mb-0">@ViewBag.yellowcards</h4>
+                                    <p class="card-text font-small-3 mb-0">Yellow Cards</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-12 mb-2 mb-sm-0">
+                            <div class="media">
+                                <div class="avatar bg-light-danger mr-2">
+                                    <div class="avatar-content">
+                                        <i class="fas fa-ban fa-2x"></i>
+                                    </div>
+                                </div>
+                                <div class="media-body my-auto">
+                                    <h4 class="font-weight-bolder mb-0">@ViewBag.redcards</h4>
+                                    <p class="card-text font-small-3 mb-0">Red Cards</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
+
+    @section Scripts {
+        <script src="~/Scripts/js/scripts/cards/card-statistics.min.js"></script>
+    }

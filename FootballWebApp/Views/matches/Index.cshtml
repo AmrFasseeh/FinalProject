@@ -68,7 +68,8 @@
                                                 @Html.ActionLink("Details", "Details", new { id = item.match_id }) |
                                                 @Html.ActionLink("Add Goals", "Create", "goals", new { id = item.match_id }, null) |
                                                 @Html.ActionLink("Add Yellow Card", "Create", "yellowcards", new { id = item.match_id }, null) |
-                                                @Html.ActionLink("Add Red Card", "Create", "redcards", new { id = item.match_id }, null)
+                                                @Html.ActionLink("Add Red Card", "Create", "redcards", new { id = item.match_id }, null) |
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.match_id })
                                             </td>
                                         </tr>
                                     }
